@@ -1,8 +1,11 @@
 package emailapp;
 
 public class Email {
-    string firstname="toto";
-    string lastname="tati";
-    string password="password";
+    private String firstname;
+    private String lastname;
+    private String password;
+    private String department;
+    private int mailboxCapacity;
+    private String alternateEmail;
 
 }

@@ -20,5 +20,4 @@ public class EmailApp {
     {
         EmailExample = new Email();
     }
-    System.out.println(Email);
 }
