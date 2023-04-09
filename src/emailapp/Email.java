@@ -8,4 +8,6 @@ public class Email {
     private int mailboxCapacity;
     private String alternateEmail;
 
+    //faire un constructeur qui reçoit la variable firstname et la variable name
+
 }
