@@ -8,12 +8,11 @@ public class Email {
     private int mailboxCapacity;
     private String alternateEmail;
 
-
-
     //faire un constructeur explicit avec args qui reçoit la variable firstname et la variable name
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.department = department;
     }
 
 
