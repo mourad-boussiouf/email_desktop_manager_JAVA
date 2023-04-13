@@ -14,5 +14,8 @@ public class Email {
         this.lastName = lastName;
     }
 
+    // écrire méthode random ou pseudo-random
+
+
 
 }
