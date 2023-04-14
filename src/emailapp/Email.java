@@ -1,5 +1,5 @@
 package emailapp;
-
+import java.util.Random;
 public class Email {
     private String firstname;
     private String lastname;
