@@ -12,7 +12,7 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREE");
+        System.out.println("EMAIL CREE"+this.firstname+" "+this.lastname);
     }
 
     // écrire méthode random ou pseudo-random

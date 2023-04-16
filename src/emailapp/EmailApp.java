@@ -4,7 +4,8 @@ package emailapp;
 // then press Enter. You can now see whitespace characters in your code.
 public class EmailApp {
     public static void main(String[] args) {
-        Email em1 = new Email("Ruben","Habiba");
+
+        Email em1 = new Email("Moui","lastname");
     }
 
 }
