@@ -1,8 +1,8 @@
 package emailapp;
 import java.util.Random;
 public class Email {
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String password;
     private String department;
     private int mailboxCapacity;
@@ -12,7 +12,7 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREE"+this.firstname+" "+this.lastname);
+        System.out.println("EMAIL CREE"+this.firstName+" "+this.lastName);
     }
 
     // écrire méthode random ou pseudo-random
