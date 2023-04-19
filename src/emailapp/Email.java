@@ -18,7 +18,7 @@ public class Email {
 
         this.department = setDepartment();
 
-        System.out.println("EMAIL CREE "+this.firstName+" "+this.lastName+this.department+" ");
+        System.out.println("EMAIL CREE "+this.firstName+this.lastName+"."+this.department+"@");
     }
 
     private String setDepartment() {
@@ -29,6 +29,11 @@ public class Email {
         else if (sectorChoice == 2){return "dev";}
         else if (sectorChoice == 3){return "compta";}
         else {return"";}
+    }
+
+    private String randomPassword(int length){
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
+
     }
 
     // écrire méthode random ou pseudo-random
