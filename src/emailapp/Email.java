@@ -16,16 +16,18 @@ public class Email {
         this.lastName = lastName;
         System.out.println("EMAIL CREE "+this.firstName+" "+this.lastName);
 
+        this.department = setDepartment();
 
+        System.out.println("EMAIL CREE "+this.firstName+" "+this.lastName+this.department+" ");
     }
 
     private String setDepartment() {
-        System.out.print("Entrez le secteur de profession de l'employé\n1 pour Sales\n2 pour Développement\n3 pour Comptabilité\n0 pour aucun");
+        System.out.print("Entrez le secteur de profession de l'employé\n1 pour Sales\n2 pour Développement\n3 pour Comptabilité\n0 pour aucun. Entrez le chiffre correspondant : ");
         Scanner input =  new Scanner(System.in);
         int sectorChoice =  input.nextInt();
         if(sectorChoice == 1){return "sales";}
         else if (sectorChoice == 2){return "dev";}
-        else if (sectorChoice == 2){return "compta";}
+        else if (sectorChoice == 3){return "compta";}
         else {return"";}
     }
 
