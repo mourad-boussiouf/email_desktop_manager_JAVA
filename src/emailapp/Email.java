@@ -1,5 +1,7 @@
 package emailapp;
 import java.util.Random;
+import java.util.Scanner;
+
 public class Email {
     private String firstName;
     private String lastName;
@@ -12,11 +14,22 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREE"+this.firstName+" "+this.lastName+"@");
+        System.out.println("EMAIL CREE "+this.firstName+" "+this.lastName);
+
+
+    }
+
+    private String setDepartment() {
+        System.out.print("Entrez le secteur de profession de l'employé\n1 pour Sales\n2 pour Développement\n3 pour Comptabilité\n0 pour aucun");
+        Scanner input =  new Scanner(System.in);
+        int sectorChoice =  input.nextInt();
+        if(sectorChoice == 1){return "sales";}
+        else if (sectorChoice == 2){return "dev";}
+        else if (sectorChoice == 2){return "compta";}
+        else {return"";}
     }
 
     // écrire méthode random ou pseudo-random
-
 
 
 }
