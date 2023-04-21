@@ -34,6 +34,9 @@ public class Email {
     private String randomPassword(int length){
         String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] password = new char[length];
+        for(int i=0; i<length; i++){
+            int rand = (int) (Math.random() * passwordSet.length());
+        }
     }
 
     // écrire méthode random ou pseudo-random
