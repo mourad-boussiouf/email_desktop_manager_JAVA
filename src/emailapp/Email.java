@@ -36,6 +36,7 @@ public class Email {
         char[] password = new char[length];
         for(int i=0; i<length; i++){
             int rand = (int) (Math.random() * passwordSet.length());
+            password[i] = passwordSet.charAt(rand);
         }
     }
 
