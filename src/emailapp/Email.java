@@ -38,6 +38,7 @@ public class Email {
             int rand = (int) (Math.random() * passwordSet.length());
             password[i] = passwordSet.charAt(rand);
         }
+        return new String(password);
     }
 
     // écrire méthode random ou pseudo-random
