@@ -44,6 +44,8 @@ public class Email {
         return new String(password);
     }
 
+
+
     // écrire méthode random ou pseudo-random
 
 
