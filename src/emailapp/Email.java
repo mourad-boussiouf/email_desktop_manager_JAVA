@@ -19,7 +19,6 @@ public class Email {
         this.department = setDepartment();
         String passwordTest = randomPassword(10);
 
-
         System.out.println("EMAIL CREE "+this.firstName+this.lastName+"."+this.department+"@");
         System.out.println("TEST RANDOM: "+passwordTest);
     }
