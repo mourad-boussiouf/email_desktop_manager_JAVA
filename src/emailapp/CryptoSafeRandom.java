@@ -1,4 +1,5 @@
 package emailapp;
+import java.security.NoSuchProviderException;
 import java.util.Random;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -7,23 +8,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class CryptoSafeRandom {
 
-    public CryptoSafeRandom(int size){
-        byte[] values = new byte[size];
-        byte test = secureRandom.nextBytes(values);
-        System.out.println(test);
+    public CryptoSafeRandom() throws NoSuchAlgorithmException, NoSuchProviderException {
+        SecureRandom secureRandomGenerator = SecureRandom.getInstance("SHA1PRNG", "SUN");
+
+        byte[] values = new byte[300];
+        SecureRandom a =  new SecureRandom();
+        a.nextBytes(values);
+
+        System.out.println("TEST CRYPTO SAFE RANDOM: ");
+        System.out.println(values);
     }
     byte byteCharCode = 65;
     char charFromByte = (char)byteCharCode;
-
-
-    int randomInt = secureRandom.nextInt();
-    long randomLong = secureRandom.nextLong();
-    float randomFloat = secureRandom.nextFloat();
-    double randomDouble = secureRandom.nextDouble();
-    boolean randomBoolean = secureRandom.nextBoolean();
-
     byte[] values = new byte[124];
-    byte test = secureRandom.nextBytes(values);
-
 
 }

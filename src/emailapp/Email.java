@@ -14,13 +14,11 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREE "+this.firstName+" "+this.lastName);
 
         this.department = setDepartment();
         String passwordTest = randomPassword(10);
 
         System.out.println("EMAIL CREE "+this.firstName+this.lastName+"."+this.department+"@");
-        System.out.println("TEST RANDOM: "+passwordTest);
     }
 
     private String setDepartment() {
