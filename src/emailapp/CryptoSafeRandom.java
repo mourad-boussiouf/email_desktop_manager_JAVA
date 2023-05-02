@@ -47,6 +47,9 @@ public class CryptoSafeRandom {
 
             // generating user-specified number of random bytes
             // using nextBytes() method
+            for (int i = 0; i < ; i++) {
+                
+            }
             sr.nextBytes(b);
 
             // printing the new byte array
