@@ -38,7 +38,7 @@ public class CryptoSafeRandom {
             String str = new String(seedWord);
             System.out.println("SEED WORD" + str);
             return;
-            // déclarer le tableau de byte
+            // declarer le tableau de byte
             // remplir le tableau de byte par le seedword aleatoire converti en byte
             byte[] b = str.getBytes();
 
