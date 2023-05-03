@@ -9,7 +9,7 @@ public class EmailApp {
     public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchProviderException {
 
         Email em1 = new Email("Moi","lastname");
-        CryptoSafeRandom em2 = new CryptoSafeRandom(5);
+        CryptoSafeRandom em2 = new CryptoSafeRandom(10);
     }
 
 }

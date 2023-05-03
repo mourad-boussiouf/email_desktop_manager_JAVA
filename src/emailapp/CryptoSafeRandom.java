@@ -1,6 +1,7 @@
 package emailapp;
 import java.security.NoSuchProviderException;
 import java.security.ProviderException;
+import java.sql.Array;
 import java.util.Random;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -14,7 +15,6 @@ public class CryptoSafeRandom {
         SecureRandom rand = new SecureRandom();
         int rand_int1 = rand.nextInt(20);
 
-
         String seedSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] seedWord = new char[length];
         for(int i=0; i<length; i++){
@@ -22,14 +22,6 @@ public class CryptoSafeRandom {
             seedWord[i] = seedSet.charAt(rand_int);
         }
 
-        String rdm = "";
-        for (int i = 0; i < 10; i++) {
-            int rand_int3 = rand.nextInt(20);
-            byte[] bytes = new byte[rand_int3]
-            Stack<String> s = new Stack<String>();
-            rand.nextBytes(bytes);
-            System.out.println("Random bytes: "+ bytes);
-        }
         try {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
@@ -37,20 +29,32 @@ public class CryptoSafeRandom {
             // declarer la seed
             String str = new String(seedWord);
             System.out.println("SEED WORD" + str);
-            return;
+
             // declarer le tableau de byte
             // remplir le tableau de byte par le seedword aleatoire converti en byte
             byte[] b = str.getBytes();
 
             // printing the byte array
-            System.out.println("Byte array before operation : " + Arrays.toString(b));
+            System.out.println("Byte array a partir de seed word avant nextBytes: " + Arrays.toString(b));
 
             // generating user-specified number of random bytes
             // using nextBytes() method
-            for (int i = 0; i < ; i++) {
+            for (int i = 0; i <= length; i++) {
                 
             }
-            sr.nextBytes(b);
+            String rdm = "";
+            for (int i = 0; i < length; i++) {
+                int rand_int3 = rand.nextInt(20);
+                byte[] bytes = new byte[length];
+                Stack<String> s = new Stack<String>();
+                sr.nextBytes(b);
+                rand.nextBytes(bytes);
+                String table = Arrays.toString(b);
+                System.out.println("Random bytes To String: "+ Arrays.toString(b));
+                System.out.println("Random bytes: "+ table.split() );
+
+            }
+
 
             // printing the new byte array
             System.out.println("Byte array after operation : " + Arrays.toString(b));
