@@ -15,6 +15,16 @@ public class CryptoSafeRandom {
         SecureRandom rand = new SecureRandom();
         int rand_int1 = rand.nextInt(20);
 
+
+        StringBuilder sb = new StringBuilder();
+        for (int y = 0; y <= 0xFFFF; y++) {
+            if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
+                sb.append((char) y);
+            }
+        }
+        String UnicodeCharsList = sb.toString();
+
+
         String seedSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] seedWord = new char[length];
         for(int i=0; i<length; i++){
@@ -28,7 +38,7 @@ public class CryptoSafeRandom {
 
             // declarer la seed
             String str = new String(seedWord);
-            System.out.println("SEED WORD" + str);
+            System.out.println("SEED WORD: " + str);
 
             // declarer le tableau de byte
             // remplir le tableau de byte par le seedword aleatoire converti en byte
@@ -50,11 +60,27 @@ public class CryptoSafeRandom {
                 sr.nextBytes(b);
                 rand.nextBytes(bytes);
                 String table = Arrays.toString(b);
+                //string to array
+
+                String Tableau = table.substring(1, table.length() - 1); // remove the square brackets
+                System.out.println("test hexa dans java");
+                System.out.println(1>0xFFFF);
+                String[] strArray = Tableau.split(", ");
+                String firstNum = strArray[0];
+                System.out.println("strArray:"+ strArray.length);
+
+                int[] intArray = new int[strArray.length];
+
+                for (int u = 0; u < strArray.length; u++) {
+                    intArray[u] = Integer.parseInt(strArray[u]);
+                    System.out.println("Random bytes To String real int array:"+intArray[u]);
+                }
+
+                System.out.println("Random bytes To String real int array:"+intArray[0]);
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
-                System.out.println("Random bytes: "+ table.split() );
+                System.out.println("Random bytes: "+ table);
 
             }
-
 
             // printing the new byte array
             System.out.println("Byte array after operation : " + Arrays.toString(b));
