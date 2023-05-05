@@ -23,7 +23,7 @@ public class CryptoSafeRandom {
         System.out.println(127<0X007F);
 
         StringBuilder sb = new StringBuilder();
-        for (int y = 0X0020; y <= 0X007E; y++) {
+        for (int y = 0X0021; y <= 0X007E; y++) {
             if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
                 sb.append((char) y);
             }
@@ -33,7 +33,7 @@ public class CryptoSafeRandom {
                 sb.append((char) y);
             }
         }
-        for (int y = 0X0080; y <= 0X0080; y++) {
+        for (int y = 0X00A1; y <= 0X00B4; y++) {
             if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
                 sb.append((char) y);
             }
