@@ -12,18 +12,37 @@ import java.util.logging.Logger;
 public class CryptoSafeRandom {
 
     public CryptoSafeRandom(int length) throws NoSuchAlgorithmException, NoSuchProviderException {
+        String strWithSingleQuote = "Other \\people's money";
+        System.out.println(strWithSingleQuote);
         SecureRandom rand = new SecureRandom();
         int rand_int1 = rand.nextInt(20);
 
+        System.out.println("SHOULD BE TRUE");
+        System.out.println(126<0X007F);
+        System.out.println("SHOULD BE FALSE");
+        System.out.println(127<0X007F);
 
         StringBuilder sb = new StringBuilder();
-        for (int y = 0; y <= 0xFFFF; y++) {
+        for (int y = 0X0020; y <= 0X007E; y++) {
             if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
                 sb.append((char) y);
             }
         }
-        String UnicodeCharsList = sb.toString();
+        for (int y = 0X0080; y <= 0X0080; y++) {
+            if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
+                sb.append((char) y);
+            }
+        }
+        for (int y = 0X0080; y <= 0X0080; y++) {
+            if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
+                sb.append((char) y);
+            }
+        }
 
+
+        String UnicodeCharsList = sb.toString();
+        System.out.println(UnicodeCharsList);
+        System.out.println(UnicodeCharsList.length());
 
         String seedSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] seedWord = new char[length];
@@ -31,7 +50,6 @@ public class CryptoSafeRandom {
             int rand_int = rand.nextInt(seedSet.length());
             seedWord[i] = seedSet.charAt(rand_int);
         }
-
         try {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
