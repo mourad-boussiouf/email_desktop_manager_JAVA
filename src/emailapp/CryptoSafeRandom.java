@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Stack;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class CryptoSafeRandom {
@@ -50,6 +51,7 @@ public class CryptoSafeRandom {
             int rand_int = rand.nextInt(seedSet.length());
             seedWord[i] = seedSet.charAt(rand_int);
         }
+        new Vector<>();
         try {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
