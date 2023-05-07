@@ -51,7 +51,9 @@ public class CryptoSafeRandom {
             int rand_int = rand.nextInt(seedSet.length());
             seedWord[i] = seedSet.charAt(rand_int);
         }
+
         new Vector<>();
+
         try {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
@@ -92,8 +94,8 @@ public class CryptoSafeRandom {
                 int[] intArray = new int[strArray.length];
 
                 for (int u = 0; u < strArray.length; u++) {
-                    intArray[u] = Integer.parseInt(strArray[u]);
-                    System.out.println("Random bytes To String real int array:"+intArray[u]);
+                    int intOfChar = Integer.parseInt(strArray[5]);
+                    System.out.println("Random bytes To String real int array:"+intOfChar);
                 }
 
                 System.out.println("Random bytes To String real int array:"+intArray[0]);
