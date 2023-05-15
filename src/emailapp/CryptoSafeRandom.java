@@ -34,7 +34,7 @@ public class CryptoSafeRandom {
                 sb.append((char) y);
             }
         }
-        for (int y = 0X00A1; y <= 0X00B4; y++) {
+        for (int y = 0X00A1; y <= 0X00C8; y++) {
             if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
                 sb.append((char) y);
             }
