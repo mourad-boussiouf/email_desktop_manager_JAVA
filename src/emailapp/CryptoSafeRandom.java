@@ -40,6 +40,9 @@ public class CryptoSafeRandom {
             }
         }
 
+        sb.replace(122, 125, "");
+        sb.replace(118, 120, "");
+
 
         String UnicodeCharsList = sb.toString();
         System.out.println(UnicodeCharsList);
@@ -48,8 +51,8 @@ public class CryptoSafeRandom {
         String seedSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] seedWord = new char[length];
         for(int i=0; i<length; i++){
-            int rand_int = rand.nextInt(seedSet.length());
-            seedWord[i] = seedSet.charAt(rand_int);
+            int rand_int = rand.nextInt(UnicodeCharsList.length());
+            seedWord[i] = UnicodeCharsList.charAt(rand_int);
         }
 
         new Vector<>();
@@ -95,7 +98,7 @@ public class CryptoSafeRandom {
 
                 for (int u = 0; u < strArray.length; u++) {
                     int intOfChar = Integer.parseInt(strArray[5]);
-                    System.out.println("Random bytes To String real int array:"+intOfChar);
+                    //System.out.println("Random bytes To String real int array:"+intOfChar);
                 }
 
                 System.out.println("Random bytes To String real int array:"+intArray[0]);
