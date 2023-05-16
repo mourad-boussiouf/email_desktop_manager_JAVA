@@ -23,6 +23,7 @@ public class CryptoSafeRandom {
         System.out.println("SHOULD BE FALSE");
         System.out.println(127<0X007F);
 
+        //collection de caractères dans StringBuilder
         StringBuilder sb = new StringBuilder();
         for (int y = 0X0021; y <= 0X007E; y++) {
             if (Character.isDefined(y) && !Character.isSurrogate((char) y)) {
@@ -39,10 +40,10 @@ public class CryptoSafeRandom {
                 sb.append((char) y);
             }
         }
-
+        sb.append((char) 233);
+        sb.append((char) u00e9);
         sb.replace(122, 125, "");
         sb.replace(118, 120, "");
-
 
         String UnicodeCharsList = sb.toString();
         System.out.println(UnicodeCharsList);
