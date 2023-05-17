@@ -41,7 +41,7 @@ public class CryptoSafeRandom {
             }
         }
         sb.append((char) 233);
-        sb.append((char) u00e9);
+        sb.append((char) 232);
         sb.replace(122, 125, "");
         sb.replace(118, 120, "");
 
@@ -51,9 +51,17 @@ public class CryptoSafeRandom {
 
         String seedSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] seedWord = new char[length];
+        byte[] bytes = new byte[1];
+        SecureRandom SingleByte = SecureRandom.getInstance("SHA1PRNG");
+
+
         for(int i=0; i<length; i++){
+            SingleByte.nextBytes(bytes);
+            String stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
+            System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
             int rand_int = rand.nextInt(UnicodeCharsList.length());
             seedWord[i] = UnicodeCharsList.charAt(rand_int);
+
         }
 
         new Vector<>();
@@ -68,10 +76,13 @@ public class CryptoSafeRandom {
 
             // declarer le tableau de byte
             // remplir le tableau de byte par le seedword aleatoire converti en byte
+            String str2 = new String(seedWord);
             byte[] b = str.getBytes();
+
 
             // printing the byte array
             System.out.println("Byte array a partir de seed word avant nextBytes: " + Arrays.toString(b));
+
 
             // generating user-specified number of random bytes
             // using nextBytes() method
@@ -81,17 +92,22 @@ public class CryptoSafeRandom {
             String rdm = "";
             for (int i = 0; i < length; i++) {
                 int rand_int3 = rand.nextInt(20);
-                byte[] bytes = new byte[length];
+
+
                 Stack<String> s = new Stack<String>();
+
+
                 sr.nextBytes(b);
-                rand.nextBytes(bytes);
+
+
                 String table = Arrays.toString(b);
+                String table2 = Arrays.toString(bytes);
                 //string to array
 
                 String Tableau = table.substring(1, table.length() - 1); // remove the square brackets
-                System.out.println("test hexa dans java");
-                System.out.println(1>0xFFFF);
+
                 String[] strArray = Tableau.split(", ");
+
                 String firstNum = strArray[0];
                 System.out.println("strArray:"+ strArray.length);
 
