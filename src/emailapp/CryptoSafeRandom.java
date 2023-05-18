@@ -44,6 +44,9 @@ public class CryptoSafeRandom {
         sb.append((char) 232);
         sb.replace(122, 125, "");
         sb.replace(118, 120, "");
+        sb.replace(112, 114, "");
+        sb.replace(116, 117, "");
+        sb.replace(99, 100, "");
 
         String UnicodeCharsList = sb.toString();
         System.out.println(UnicodeCharsList);
