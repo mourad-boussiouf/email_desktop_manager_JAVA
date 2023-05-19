@@ -52,7 +52,6 @@ public class CryptoSafeRandom {
         System.out.println(UnicodeCharsList);
         System.out.println(UnicodeCharsList.length());
 
-        String seedSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]-=";
         char[] seedWord = new char[length];
         byte[] bytes = new byte[1];
         SecureRandom SingleByte = SecureRandom.getInstance("SHA1PRNG");
