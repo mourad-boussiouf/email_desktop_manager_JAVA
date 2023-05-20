@@ -74,7 +74,7 @@ public class CryptoSafeRandom {
 
             // declarer la seed
             String str = new String(seedWord);
-            System.out.println("SEED WORD: " + str);
+            System.out.println("SEED WORD 1: " + str);
 
             // declarer le tableau de byte
             // remplir le tableau de byte par le seedword aleatoire converti en byte
