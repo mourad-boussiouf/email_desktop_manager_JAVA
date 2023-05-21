@@ -62,7 +62,7 @@ public class CryptoSafeRandom {
             String stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
             System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
             int rand_int = rand.nextInt(UnicodeCharsList.length());
-            seedWord[i] = UnicodeCharsList.charAt(rand_int);
+            seedWord[i] = UnicodeCharsList.charAt(Integer.parseInt(stringSingleByte));
 
         }
 
