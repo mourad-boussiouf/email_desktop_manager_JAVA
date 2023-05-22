@@ -56,14 +56,11 @@ public class CryptoSafeRandom {
         byte[] bytes = new byte[1];
         SecureRandom SingleByte = SecureRandom.getInstance("SHA1PRNG");
 
-
         for(int i=0; i<length; i++){
             SingleByte.nextBytes(bytes);
             String stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
             System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
-            int rand_int = rand.nextInt(UnicodeCharsList.length());
-            seedWord[i] = UnicodeCharsList.charAt(Integer.parseInt(stringSingleByte));
-
+            seedWord[i] = UnicodeCharsList.charAt(Math.abs(Integer.parseInt(stringSingleByte)));
         }
 
         new Vector<>();
