@@ -13,10 +13,11 @@ import java.util.logging.Logger;
 public class CryptoSafeRandom {
 
     public CryptoSafeRandom(int length) throws NoSuchAlgorithmException, NoSuchProviderException {
-        String strWithSingleQuote = "Other \\people's money";
+        String strWithSingleQuote = "Other \\ \n people's money";
         System.out.println(strWithSingleQuote);
         SecureRandom rand = new SecureRandom();
         int rand_int1 = rand.nextInt(20);
+        System.out.println(strWithSingleQuote);
 
         System.out.println("SHOULD BE TRUE");
         System.out.println(126<0X007F);
@@ -63,8 +64,6 @@ public class CryptoSafeRandom {
             seedWord[i] = UnicodeCharsList.charAt(Math.abs(Integer.parseInt(stringSingleByte)));
         }
 
-        new Vector<>();
-
         try {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
@@ -78,16 +77,13 @@ public class CryptoSafeRandom {
             String str2 = new String(seedWord);
             byte[] b = str.getBytes();
 
+            String[] simpleArrayFromByteArray = Arrays.toString(b).substring(1, Arrays.toString(b).length() - 1).split(",");
 
             // printing the byte array
-            System.out.println("Byte array a partir de seed word avant nextBytes: " + Arrays.toString(b));
+
+            System.out.println("Byte array a partir de seed word avant nextBytes: " + simpleArrayFromByteArray[2]);
 
 
-            // generating user-specified number of random bytes
-            // using nextBytes() method
-            for (int i = 0; i <= length; i++) {
-                
-            }
             String rdm = "";
             for (int i = 0; i < length; i++) {
                 int rand_int3 = rand.nextInt(20);
@@ -107,15 +103,14 @@ public class CryptoSafeRandom {
 
                 String[] strArray = Tableau.split(", ");
 
-                String firstNum = strArray[0];
                 System.out.println("strArray:"+ strArray.length);
 
                 int[] intArray = new int[strArray.length];
-
-                for (int u = 0; u < strArray.length; u++) {
-                    int intOfChar = Integer.parseInt(strArray[5]);
-                    //System.out.println("Random bytes To String real int array:"+intOfChar);
-                }
+                byte[] numberToArraySelect = new byte[1];
+                sr.nextBytes(numberToArraySelect);
+                String stringSingleByte = Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(bytes).length() - 1);
+                System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
+                seedWord[i] = UnicodeCharsList.charAt(Math.abs(Integer.parseInt(stringSingleByte)));
 
                 System.out.println("Random bytes To String real int array:"+intArray[0]);
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
