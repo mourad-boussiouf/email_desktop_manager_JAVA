@@ -108,9 +108,9 @@ public class CryptoSafeRandom {
                 int[] intArray = new int[strArray.length];
                 byte[] numberToArraySelect = new byte[1];
                 sr.nextBytes(numberToArraySelect);
-                String stringSingleByte = Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(bytes).length() - 1);
-                System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
-                seedWord[i] = UnicodeCharsList.charAt(Math.abs(Integer.parseInt(stringSingleByte)));
+                String numberToArraySelectArray = Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1);
+                System.out.println("objectif random int max 10 via nextByte " + Arrays.toString(numberToArraySelect));
+
 
                 System.out.println("Random bytes To String real int array:"+intArray[0]);
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
