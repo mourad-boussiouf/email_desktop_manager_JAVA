@@ -28,7 +28,9 @@ public class Email {
         if(sectorChoice == 1){return "sales";}
         else if (sectorChoice == 2){return "dev";}
         else if (sectorChoice == 3){return "compta";}
-        else {return"";}
+        else if (sectorChoice == 0){return "";}
+        else { System.out.println("Veuillez choisir un chiffre valide. Le programme va s'arrêter");System.exit( -1 );return "Veuillez choisir un chiffre valide. Le programme va s'arrêter";
+            }
     }
 
     private String randomPassword(int length){

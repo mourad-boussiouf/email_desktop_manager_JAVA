@@ -109,8 +109,8 @@ public class CryptoSafeRandom {
                 byte[] numberToArraySelect = new byte[1];
                 sr.nextBytes(numberToArraySelect);
                 String numberToArraySelectArray = Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1);
-                System.out.println("objectif random int max 10 via nextByte " + Arrays.toString(numberToArraySelect));
 
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + numberToArraySelectArray);
 
                 System.out.println("Random bytes To String real int array:"+intArray[0]);
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
