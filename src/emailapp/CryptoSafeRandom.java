@@ -19,11 +19,6 @@ public class CryptoSafeRandom {
         int rand_int1 = rand.nextInt(20);
         System.out.println(strWithSingleQuote);
 
-        System.out.println("SHOULD BE TRUE");
-        System.out.println(126<0X007F);
-        System.out.println("SHOULD BE FALSE");
-        System.out.println(127<0X007F);
-
         //collection de caractères dans StringBuilder
         StringBuilder sb = new StringBuilder();
         for (int y = 0X0021; y <= 0X007E; y++) {
