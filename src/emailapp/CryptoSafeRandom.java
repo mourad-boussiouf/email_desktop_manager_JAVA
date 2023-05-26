@@ -63,7 +63,6 @@ public class CryptoSafeRandom {
             System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
             seedWord[i] = UnicodeCharsList.charAt(Math.abs(Integer.parseInt(stringSingleByte)));
         }
-
         try {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
@@ -83,17 +82,13 @@ public class CryptoSafeRandom {
 
             System.out.println("Byte array a partir de seed word avant nextBytes: " + simpleArrayFromByteArray[2]);
 
-
             String rdm = "";
             for (int i = 0; i < length; i++) {
                 int rand_int3 = rand.nextInt(20);
 
-
                 Stack<String> s = new Stack<String>();
 
-
                 sr.nextBytes(b);
-
 
                 String table = Arrays.toString(b);
                 String table2 = Arrays.toString(bytes);
@@ -108,14 +103,13 @@ public class CryptoSafeRandom {
                 int[] intArray = new int[strArray.length];
                 byte[] numberToArraySelect = new byte[1];
                 sr.nextBytes(numberToArraySelect);
-                String numberToArraySelectArray = Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1);
+                int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
 
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + numberToArraySelectArray);
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 8);
 
                 System.out.println("Random bytes To String real int array:"+intArray[0]);
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
-
             }
 
             // printing the new byte array

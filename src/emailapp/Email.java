@@ -30,7 +30,7 @@ public class Email {
         else if (sectorChoice == 3){return "compta";}
         else if (sectorChoice == 0){return "";}
         else { System.out.println("Veuillez choisir un chiffre valide. Le programme va s'arrêter");System.exit( -1 );return "Veuillez choisir un chiffre valide. Le programme va s'arrêter";
-            }
+        }
     }
 
     private String randomPassword(int length){
@@ -42,9 +42,6 @@ public class Email {
         }
         return new String(password);
     }
-
-
-
     // écrire méthode random ou pseudo-random
 
 
