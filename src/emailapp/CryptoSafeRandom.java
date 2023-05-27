@@ -107,7 +107,6 @@ public class CryptoSafeRandom {
                 System.out.println("Random bytes: "+ table);
             }
 
-            // printing the new byte array
             System.out.println("Byte array after operation : " + Arrays.toString(b));
         }
 
