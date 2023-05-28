@@ -75,7 +75,12 @@ public class CryptoSafeRandom {
 
             // printing the byte array
 
-            System.out.println("Byte array a partir de seed word avant nextBytes: " + simpleArrayFromByteArray[2]);
+            System.out.println("Byte array a partir de seed word avant nextBytes WWWW1: " + Arrays.toString(simpleArrayFromByteArray));
+            sr.nextBytes(b);
+            String[] simpleArrayFromByteArray2 = Arrays.toString(b).substring(1, Arrays.toString(b).length() - 1).split(",");
+            System.out.println("Byte array a partir de seed word avant nextBytes WWWW2: " + Arrays.toString(simpleArrayFromByteArray2));
+
+
 
             String rdm = "";
             for (int i = 0; i < length; i++) {
@@ -100,7 +105,7 @@ public class CryptoSafeRandom {
                 sr.nextBytes(numberToArraySelect);
                 int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
 
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 8);
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
 
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
