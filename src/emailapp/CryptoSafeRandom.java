@@ -102,7 +102,6 @@ public class CryptoSafeRandom {
 
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 8);
 
-                System.out.println("Random bytes To String real int array:"+intArray[0]);
                 System.out.println("Random bytes To String: "+ Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
             }
