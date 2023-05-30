@@ -106,8 +106,8 @@ public class CryptoSafeRandom {
                 int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
 
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
-
-                System.out.println("Random bytes To String: "+ Arrays.toString(b));
+                if(numberToShuffleInOccurrentArray / 6 <= strArray.length){   }
+                System.out.println("Random bytes To String: "+Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
             }
 
