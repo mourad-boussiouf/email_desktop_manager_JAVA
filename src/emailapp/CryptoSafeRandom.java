@@ -82,10 +82,10 @@ public class CryptoSafeRandom {
 
 
 
-            String rdm = "";
+            char[] rdm = new char[length];
             for (int i = 0; i < length; i++) {
-                int rand_int3 = rand.nextInt(20);
 
+                int rand_int3 = rand.nextInt(20);
                 Stack<String> s = new Stack<String>();
 
                 sr.nextBytes(b);
@@ -106,7 +106,9 @@ public class CryptoSafeRandom {
                 int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
 
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
-                if(numberToShuffleInOccurrentArray / 6 <= strArray.length){   }
+                if(numberToShuffleInOccurrentArray / 6 <= strArray.length){
+                    rdm[i] = sb.charAt(numberToShuffleInOccurrentArray / 6);
+                }
                 System.out.println("Random bytes To String: "+Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
             }
