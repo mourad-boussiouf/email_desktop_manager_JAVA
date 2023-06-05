@@ -107,7 +107,7 @@ public class CryptoSafeRandom {
 
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
 
-//fill array with indexed shuffle contain index in dictionary
+//fill array with indexed shuffle contain index in dictionary now
                 System.out.println("Random bytes To String: "+Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
             }
