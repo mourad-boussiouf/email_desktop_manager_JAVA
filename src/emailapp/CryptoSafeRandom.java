@@ -85,8 +85,12 @@ public class CryptoSafeRandom {
             char[] rdm = new char[length];
             for (int i = 0; i < length; i++) {
 
+
                 int rand_int3 = rand.nextInt(20);
                 Stack<String> s = new Stack<String>();
+
+                System.out.println("count"+i);
+
 
                 sr.nextBytes(b);
 
