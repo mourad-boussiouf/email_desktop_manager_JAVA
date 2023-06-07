@@ -77,9 +77,10 @@ public class CryptoSafeRandom {
 
             System.out.println("Byte array a partir de seed word avant nextBytes WWWW1: " + Arrays.toString(simpleArrayFromByteArray));
             sr.nextBytes(b);
-            String[] simpleArrayFromByteArray2 = Arrays.toString(b).substring(1, Arrays.toString(b).length() - 1).split(",");
-            System.out.println("Byte array a partir de seed word avant nextBytes WWWW2: " + Arrays.toString(simpleArrayFromByteArray2));
 
+            simpleArrayFromByteArray = Arrays.toString(b).substring(1, Arrays.toString(b).length() - 1).split(",");
+
+            System.out.println("Byte array a partir de seed word aprés nextBytes WWWW2: " + Arrays.toString(simpleArrayFromByteArray));
 
 
             char[] rdm = new char[length];
@@ -87,9 +88,9 @@ public class CryptoSafeRandom {
 
 
                 int rand_int3 = rand.nextInt(20);
-                Stack<String> s = new Stack<String>();
 
                 System.out.println("count"+i);
+
 
 
                 sr.nextBytes(b);
@@ -108,10 +109,12 @@ public class CryptoSafeRandom {
                 byte[] numberToArraySelect = new byte[1];
                 sr.nextBytes(numberToArraySelect);
                 int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
+                Stack<String> stack = new Stack<String>();
 
+                stack.push("1");
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
 
-//fill array with indexed shuffle contain index in dictionary now
+                //fill array with indexed shuffle contain index in dictionary now
                 System.out.println("Random bytes To String: "+Arrays.toString(b));
                 System.out.println("Random bytes: "+ table);
             }
