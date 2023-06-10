@@ -112,6 +112,7 @@ public class CryptoSafeRandom {
                 Stack<String> stack = new Stack<String>();
 
                 stack.push("1");
+                stack.push(Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))));
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
 
                 //fill array with indexed shuffle contain index in dictionary now
