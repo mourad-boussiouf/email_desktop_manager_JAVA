@@ -87,11 +87,8 @@ public class CryptoSafeRandom {
             for (int i = 0; i < length; i++) {
 
 
-                int rand_int3 = rand.nextInt(20);
 
                 System.out.println("count"+i);
-
-
 
                 sr.nextBytes(b);
 
@@ -112,7 +109,7 @@ public class CryptoSafeRandom {
                 Stack<String> stack = new Stack<String>();
 
                 stack.push("1");
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 4);
 
                 //fill array with indexed shuffle contain index in dictionary now
                 System.out.println("Random bytes To String: "+Arrays.toString(b));
