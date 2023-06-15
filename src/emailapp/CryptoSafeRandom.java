@@ -108,8 +108,14 @@ public class CryptoSafeRandom {
                 int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
                 Stack<String> stack = new Stack<String>();
 
-                stack.push("1");
+
+
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 4);
+
+                stack.push(Integer.toString(Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)))));
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
+                System.out.println("LA STACK" + stack);
+
 
                 //fill array with indexed shuffle contain index in dictionary now
                 System.out.println("Random bytes To String: "+Arrays.toString(b));
