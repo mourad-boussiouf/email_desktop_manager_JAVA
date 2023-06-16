@@ -86,8 +86,6 @@ public class CryptoSafeRandom {
             char[] rdm = new char[length];
             for (int i = 0; i < length; i++) {
 
-
-
                 System.out.println("count"+i);
 
                 sr.nextBytes(b);
@@ -105,17 +103,13 @@ public class CryptoSafeRandom {
                 int[] intArray = new int[strArray.length];
                 byte[] numberToArraySelect = new byte[1];
                 sr.nextBytes(numberToArraySelect);
-                int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
-                Stack<String> stack = new Stack<String>();
+                int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))) / 8;
 
 
+                String lol = (Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
+                System.out.println("ça a l'air de correspondre à quoi ce machin"+lol);
 
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 4);
-
-                stack.push(Integer.toString(Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)))));
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "ORIGINAl:" + numberToShuffleInOccurrentArray + "POST DIVISION:"+numberToShuffleInOccurrentArray / 6);
-                System.out.println("LA STACK" + stack);
-
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + numberToShuffleInOccurrentArray );
 
                 //fill array with indexed shuffle contain index in dictionary now
                 System.out.println("Random bytes To String: "+Arrays.toString(b));
