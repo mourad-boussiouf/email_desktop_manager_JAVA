@@ -106,7 +106,7 @@ public class CryptoSafeRandom {
                 int numberToShuffleInOccurrentArray = Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))) / 8;
 
 
-                String lol = (Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1)));
+                String lol = String.valueOf(Math.abs(Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))));
                 System.out.println("ça a l'air de correspondre à quoi ce machin"+lol);
 
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + numberToShuffleInOccurrentArray );
