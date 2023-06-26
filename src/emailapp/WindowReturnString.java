@@ -17,15 +17,12 @@ public class WindowReturnString extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Create a panel to hold the components
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
-        // Create the text field
         textField = new JTextField(10);
         panel.add(textField);
 
-        // Create the button
         JButton button = new JButton("Envoyer");
         panel.add(button);
 
@@ -39,25 +36,20 @@ public class WindowReturnString extends JFrame {
         panel.add(descriptionLabel3);
         panel.add(descriptionLabel4);
 
-        // Add action listener to the button
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 outputValue = textField.getText();
 
-                // Perform any operations with the string value here
                 System.out.println("Input value: " + outputValue);
                 dispose();
             }
         });
 
-        // Add the panel to the content pane
         getContentPane().add(panel);
 
-        // Make the frame visible
         setVisible(true);
 
-        // Wait until the frame is closed
         while (isVisible()) {
             try {
                 Thread.sleep(100);
