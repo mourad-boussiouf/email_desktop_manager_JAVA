@@ -13,11 +13,9 @@ import java.util.logging.Logger;
 public class CryptoSafeRandom {
 
     public CryptoSafeRandom(int length) throws NoSuchAlgorithmException, NoSuchProviderException {
-        String strWithSingleQuote = "Other \\ \n people's money";
-        System.out.println(strWithSingleQuote);
+
         SecureRandom rand = new SecureRandom();
         int rand_int1 = rand.nextInt(20);
-        System.out.println(strWithSingleQuote);
 
         //collection de caractères dans StringBuilder
         StringBuilder sb = new StringBuilder();
@@ -51,12 +49,22 @@ public class CryptoSafeRandom {
         char[] seedWord = new char[length];
         byte[] bytes = new byte[1];
         SecureRandom SingleByte = SecureRandom.getInstance("SHA1PRNG");
+        //cette fonction regenère
 
         for(int i=0; i<length; i++){
             SingleByte.nextBytes(bytes);
             String stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
-            System.out.println("Byte to array to string à partir de SingleByte: " + Integer.parseInt(stringSingleByte));
-            seedWord[i] = UnicodeCharsList.charAt(Math.abs(Integer.parseInt(stringSingleByte)));
+            System.out.println("Byte to array to string à partir de SingleByte ICI: " + Math.abs(Integer.parseInt(stringSingleByte)));
+            int OccurentShuffleNumber = Math.abs(Integer.parseInt(stringSingleByte));
+            if (OccurentShuffleNumber == 128){
+                System.out.println("Edge case 128");
+                while (OccurentShuffleNumber == 128){
+                    SingleByte.nextBytes(bytes);
+                    stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
+                    OccurentShuffleNumber = Math.abs(Integer.parseInt(stringSingleByte));
+                }
+            }
+            seedWord[i] = UnicodeCharsList.charAt(OccurentShuffleNumber);
         }
         try {
             // initialisation objet secure random
