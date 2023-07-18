@@ -112,30 +112,30 @@ public class CryptoSafeRandom {
                 sr.nextBytes(numberToArraySelect);
                 String FloatTest = Arrays.toString(numberToArraySelect);
                 int numberToShuffleInOccurrentArray = Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))+128;
-                int lol = numberToShuffleInOccurrentArray;
+                System.out.println("Valeur brute byte +128 : "+numberToShuffleInOccurrentArray);
+
                 while(numberToShuffleInOccurrentArray >= 250){
                     System.out.println("Edge case NumberOfShuffleInArray > 250 old :"+numberToShuffleInOccurrentArray);
                     sr.nextBytes(numberToArraySelect);
                     numberToShuffleInOccurrentArray = Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))+128;
-
                     System.out.println("Edge case NumberOfShuffleInArray > 250 new :"+numberToShuffleInOccurrentArray);
-
                 }
-                    lol = numberToShuffleInOccurrentArray % 10;
-                if (strArray.length > 10 && numberToShuffleInOccurrentArray >= 125) {
-                    System.out.println("Edge gros array old :"+lol);
-                    lol = lol + (strArray.length - 10);
-                    System.out.println("Edge gros array new :"+lol);
+                int pickInArray = numberToShuffleInOccurrentArray % 10;
+                if (strArray.length > 10 && numberToShuffleInOccurrentArray <= 88) {
+                    System.out.println("Edge gros array old :"+pickInArray);
+                    pickInArray = pickInArray + (strArray.length - 10);
+                    System.out.println("Edge gros array new :"+pickInArray);
                 }
 
 
-                System.out.println("ça a l'air de correspondre à quoi ce machin"+lol);
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + lol );
+                System.out.println("PICK IN ARRAY"+pickInArray);
+                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + pickInArray);
                 //fill array with indexed shuffle contain index in dictionary now
-                System.out.println("Random bytes To String: "+Arrays.toString(b));
-                System.out.println("Random bytes: "+ table);
-            }
+                System.out.println("Random bytes Arrays.toString.(b): "+Arrays.toString(b));
+                System.out.println("Random bytes table : "+ table);
+                System.out.println("Random index in b: "+ Math.abs(b[pickInArray]));
 
+            }
             System.out.println("Byte array after operation : " + Arrays.toString(b));
         }
 
