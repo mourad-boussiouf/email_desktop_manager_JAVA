@@ -12,7 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class CryptoSafeRandom {
 
-    public CryptoSafeRandom(int length) throws NoSuchAlgorithmException, NoSuchProviderException {
+    public String CryptoSafeRandom(int length) throws NoSuchAlgorithmException, NoSuchProviderException {
+        String rdmStringToReturn = null;
 
         SecureRandom rand = new SecureRandom();
         int rand_int1 = rand.nextInt(20);
@@ -45,7 +46,7 @@ public class CryptoSafeRandom {
         String UnicodeCharsList = sb.toString();
         System.out.println(UnicodeCharsList);
         System.out.println(UnicodeCharsList.length());
-
+        char[] rdm = new char[length];
         char[] seedWord = new char[length];
         byte[] bytes = new byte[1];
         SecureRandom SingleByte = SecureRandom.getInstance("SHA1PRNG");
@@ -91,7 +92,7 @@ public class CryptoSafeRandom {
             System.out.println("Byte array a partir de seed word aprés nextBytes WWWW2: " + Arrays.toString(simpleArrayFromByteArray));
 
 
-            char[] rdm = new char[length];
+
             for (int i = 0; i < length; i++) {
 
                 System.out.println("count"+i);
@@ -120,13 +121,13 @@ public class CryptoSafeRandom {
                     numberToShuffleInOccurrentArray = Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))+128;
                     System.out.println("Edge case NumberOfShuffleInArray > 250 new :"+numberToShuffleInOccurrentArray);
                 }
+                //if big array and low number add entropy to the index select
                 int pickInArray = numberToShuffleInOccurrentArray % 10;
-                if (strArray.length > 10 && numberToShuffleInOccurrentArray <= 88) {
+                if (strArray.length > 10 && numberToShuffleInOccurrentArray <= 66 && numberToShuffleInOccurrentArray > 20) {
                     System.out.println("Edge gros array old :"+pickInArray);
                     pickInArray = pickInArray + (strArray.length - 10);
                     System.out.println("Edge gros array new :"+pickInArray);
                 }
-
 
                 System.out.println("PICK IN ARRAY"+pickInArray);
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + pickInArray);
@@ -134,9 +135,12 @@ public class CryptoSafeRandom {
                 System.out.println("Random bytes Arrays.toString.(b): "+Arrays.toString(b));
                 System.out.println("Random bytes table : "+ table);
                 System.out.println("Random index in b: "+ Math.abs(b[pickInArray]));
-
+                System.out.println("Character matching the random index in b: "+ UnicodeCharsList.charAt(Math.abs(b[pickInArray])));
+                rdm[i] = UnicodeCharsList.charAt(Math.abs(b[pickInArray]));
+                System.out.println("TEST" + new String(rdm));
             }
-            System.out.println("Byte array after operation : " + Arrays.toString(b));
+            rdmStringToReturn = new String(rdm);
+            System.out.println("rdm string  after operation : " + rdmStringToReturn);
         }
 
         catch (NoSuchAlgorithmException e) {
@@ -145,6 +149,8 @@ public class CryptoSafeRandom {
         catch (ProviderException e) {
             System.out.println("Exception thrown : " + e);
         }
+
+        return rdmStringToReturn;
     }
 
 }
