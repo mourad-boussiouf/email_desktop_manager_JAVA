@@ -1,6 +1,8 @@
 package emailapp;
+import java.security.NoSuchProviderException;
 import java.util.Random;
 import java.util.Scanner;
+import java.security.NoSuchAlgorithmException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,16 +16,21 @@ public class Email {
     private String alternateEmail;
 
     //faire un constructeur explicit avec args qui reçoit la variable firstname et la variable name
-    public Email(String firstName, String lastName) {
+    public Email(String firstName, String lastName) throws NoSuchAlgorithmException, NoSuchProviderException {
         this.firstName = firstName;
         this.lastName = lastName;
+        System.out.println("EMAIL CREE "+this.firstName+" "+this.lastName);
         WindowReturnString window = new WindowReturnString();
         this.department = setDepartmentWithWindow(Integer.parseInt(window.FormWindow()));
-        String passwordTest = randomPassword(10);
 
-        System.out.println("EMAIL CREE "+this.firstName+this.lastName+"."+this.department+"@");
+        CryptoSafeRandom CSR = new CryptoSafeRandom();
+        this.password = CSR.CryptoSafeRandom(10);
+
+
+        System.out.println(".departmentAT :"+"."+this.department+"@");
+        System.out.println("Le mot de passe WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW :"+this.password);
+
     }
-
 
     private String setDepartmentWithWindow( int sectorChoice) {
         if(sectorChoice == 1){return "sales";}

@@ -13,10 +13,6 @@ import java.util.logging.Logger;
 public class CryptoSafeRandom {
 
     public String CryptoSafeRandom(int length) throws NoSuchAlgorithmException, NoSuchProviderException {
-        String rdmStringToReturn = null;
-
-        SecureRandom rand = new SecureRandom();
-        int rand_int1 = rand.nextInt(20);
 
         //collection de caractères dans StringBuilder
         StringBuilder sb = new StringBuilder();
@@ -44,8 +40,6 @@ public class CryptoSafeRandom {
         sb.replace(99, 100, "");
 
         String UnicodeCharsList = sb.toString();
-        System.out.println(UnicodeCharsList);
-        System.out.println(UnicodeCharsList.length());
         char[] rdm = new char[length];
         char[] seedWord = new char[length];
         byte[] bytes = new byte[1];
@@ -55,7 +49,6 @@ public class CryptoSafeRandom {
         for(int i=0; i<length; i++){
             SingleByte.nextBytes(bytes);
             String stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
-            System.out.println("Byte to array to string à partir de SingleByte ICI: " + Math.abs(Integer.parseInt(stringSingleByte)));
             int OccurentShuffleNumber = Math.abs(Integer.parseInt(stringSingleByte));
             if (OccurentShuffleNumber == 128){
                 System.out.println("Edge case 128");
@@ -71,39 +64,27 @@ public class CryptoSafeRandom {
             // initialisation objet secure random
             SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
 
-            // declarer la seed
+            // declare et instancie la seed en tant que String
             String str = new String(seedWord);
-            System.out.println("SEED WORD 1: " + str);
 
             // declarer le tableau de byte
             // remplir le tableau de byte par le seedword aleatoire converti en byte
-            String str2 = new String(seedWord);
             byte[] b = str.getBytes();
 
             String[] simpleArrayFromByteArray = Arrays.toString(b).substring(1, Arrays.toString(b).length() - 1).split(",");
-
-            // printing the byte array
-
-            System.out.println("Byte array a partir de seed word avant nextBytes WWWW1: " + Arrays.toString(simpleArrayFromByteArray));
+            //renouvellement random bytes
             sr.nextBytes(b);
 
-            simpleArrayFromByteArray = Arrays.toString(b).substring(1, Arrays.toString(b).length() - 1).split(",");
-
-            System.out.println("Byte array a partir de seed word aprés nextBytes WWWW2: " + Arrays.toString(simpleArrayFromByteArray));
-
-
-
             for (int i = 0; i < length; i++) {
-
-                System.out.println("count"+i);
-
+                //renouvellement génération de bytes à chaque loop
                 sr.nextBytes(b);
 
+                //array to string
                 String table = Arrays.toString(b);
-                String table2 = Arrays.toString(bytes);
-                //string to array
 
-                String Tableau = table.substring(1, table.length() - 1); // remove the square brackets
+                // remove the square brackets of the string array representation
+                String Tableau = table.substring(1, table.length() - 1);
+
 
                 String[] strArray = Tableau.split(", ");
 
@@ -111,7 +92,6 @@ public class CryptoSafeRandom {
 
                 byte[] numberToArraySelect = new byte[1];
                 sr.nextBytes(numberToArraySelect);
-                String FloatTest = Arrays.toString(numberToArraySelect);
                 int numberToShuffleInOccurrentArray = Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))+128;
                 System.out.println("Valeur brute byte +128 : "+numberToShuffleInOccurrentArray);
 
@@ -132,15 +112,12 @@ public class CryptoSafeRandom {
                 System.out.println("PICK IN ARRAY"+pickInArray);
                 System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + pickInArray);
                 //fill array with indexed shuffle contain index in dictionary now
-                System.out.println("Random bytes Arrays.toString.(b): "+Arrays.toString(b));
-                System.out.println("Random bytes table : "+ table);
                 System.out.println("Random index in b: "+ Math.abs(b[pickInArray]));
                 System.out.println("Character matching the random index in b: "+ UnicodeCharsList.charAt(Math.abs(b[pickInArray])));
                 rdm[i] = UnicodeCharsList.charAt(Math.abs(b[pickInArray]));
                 System.out.println("TEST" + new String(rdm));
             }
-            rdmStringToReturn = new String(rdm);
-            System.out.println("rdm string  after operation : " + rdmStringToReturn);
+            System.out.println("rdm string  after operation : "+new String(rdm));
         }
 
         catch (NoSuchAlgorithmException e) {
@@ -150,7 +127,7 @@ public class CryptoSafeRandom {
             System.out.println("Exception thrown : " + e);
         }
 
-        return rdmStringToReturn;
+        return new String(rdm);
     }
 
 }
