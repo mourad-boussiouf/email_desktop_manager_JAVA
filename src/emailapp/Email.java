@@ -26,10 +26,8 @@ public class Email {
         CryptoSafeRandom CSR = new CryptoSafeRandom();
         this.password = CSR.CryptoSafeRandom(10);
 
-
         System.out.println(".departmentAT :"+"."+this.department+"@");
-        System.out.println("Le mot de passe WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW :"+this.password);
-
+        System.out.println("Le mot de passe qui vous est attribué est : "+this.password);
     }
 
     private String setDepartmentWithWindow( int sectorChoice) {

@@ -7,6 +7,6 @@ import java.security.NoSuchProviderException;
 // then press Enter. You can now see whitespace characters in your code.
 public class EmailApp {
     public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchProviderException {
-        Email em1 = new Email("Moi","lastname");
+        Email em1 = new Email("Walter","Tournier");
     }
 }

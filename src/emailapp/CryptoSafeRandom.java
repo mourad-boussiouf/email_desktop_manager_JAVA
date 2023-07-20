@@ -110,14 +110,11 @@ public class CryptoSafeRandom {
                 }
 
                 System.out.println("PICK IN ARRAY"+pickInArray);
-                System.out.println("longueur array occurrent" + strArray.length +"objectif random int max 10 via nextByte" + "numberToShuffleInOccurrentArray:" + pickInArray);
                 //fill array with indexed shuffle contain index in dictionary now
-                System.out.println("Random index in b: "+ Math.abs(b[pickInArray]));
                 System.out.println("Character matching the random index in b: "+ UnicodeCharsList.charAt(Math.abs(b[pickInArray])));
                 rdm[i] = UnicodeCharsList.charAt(Math.abs(b[pickInArray]));
                 System.out.println("TEST" + new String(rdm));
             }
-            System.out.println("rdm string  after operation : "+new String(rdm));
         }
 
         catch (NoSuchAlgorithmException e) {
