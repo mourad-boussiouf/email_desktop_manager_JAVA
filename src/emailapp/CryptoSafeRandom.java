@@ -52,7 +52,7 @@ public class CryptoSafeRandom {
             String stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
             int OccurentShuffleNumber = Math.abs(Integer.parseInt(stringSingleByte));
             if (OccurentShuffleNumber == 128){
-                System.out.println("Edge case 128");
+                //gestion edge case 128 pile
                 while (OccurentShuffleNumber == 128){
                     SingleByte.nextBytes(bytes);
                     stringSingleByte = Arrays.toString(bytes).substring(1, Arrays.toString(bytes).length() - 1);
