@@ -24,7 +24,7 @@ public class Email {
         this.department = setDepartmentWithWindow(Integer.parseInt(window.FormWindow()));
 
         CryptoSafeRandom CSR = new CryptoSafeRandom();
-        this.password = CSR.CryptoSafeRandom(4);
+        this.password = CSR.CryptoSafeRandom(6);
 
         System.out.println(".departmentAT :"+"."+this.department+"@");
         System.out.println("Le mot de passe qui vous est attribué est : "+this.password);

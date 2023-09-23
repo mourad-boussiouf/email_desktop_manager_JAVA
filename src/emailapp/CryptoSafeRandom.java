@@ -112,18 +112,19 @@ public class CryptoSafeRandom {
                 if (strArray.length > 10 && numberToShuffleInOccurrentArray <= 66 && numberToShuffleInOccurrentArray > 20) {
                     pickInArray = pickInArray + (strArray.length - 10);
                 }
-
-                rdm[i] = UnicodeCharsList.charAt(Math.abs(b[pickInArray]));
+                System.out.println("UnicodeCharsList < ? que : " + UnicodeCharsList.length());
+                System.out.println("pickInArray > UnicodeCharsList ? : " + Math.abs(b[pickInArray]));
+                int pickAtThisPosition = Math.abs(b[pickInArray]);
+                if (Math.abs(b[pickInArray]) == 128){  pickAtThisPosition--; }
+                rdm[i] = UnicodeCharsList.charAt(pickAtThisPosition);
             }
         }
-
         catch (NoSuchAlgorithmException e) {
             System.out.println("Exception thrown : " + e);
         }
         catch (ProviderException e) {
             System.out.println("Exception thrown : " + e);
         }
-
         return new String(rdm);
     }
 
