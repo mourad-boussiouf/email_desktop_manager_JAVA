@@ -45,7 +45,7 @@ public class CryptoSafeRandom {
         char[] seedWord = new char[length];
         byte[] bytes = new byte[1];
         SecureRandom SingleByte = SecureRandom.getInstance("SHA1PRNG");
-        //cette fonction regenère
+
 
         for(int i=0; i<length; i++){
             SingleByte.nextBytes(bytes);
@@ -102,19 +102,18 @@ public class CryptoSafeRandom {
                     numberToShuffleInOccurrentArray = Integer.parseInt(Arrays.toString(numberToArraySelect).substring(1, Arrays.toString(numberToArraySelect).length() - 1))+128;
                     System.out.println("Edge case NumberOfShuffleInArray > 250 new :"+numberToShuffleInOccurrentArray);
                 }
-                //if big array and low number add entropy to the index select
+
+
                 int pickInArray = numberToShuffleInOccurrentArray % 10;
-                if (strArray.length > 10 && numberToShuffleInOccurrentArray <= 66 && numberToShuffleInOccurrentArray > 20) {
-                    System.out.println("Edge gros array old :"+pickInArray);
-                    pickInArray = pickInArray + (strArray.length - 10);
-                    System.out.println("Edge gros array new :"+pickInArray);
+                while(pickInArray >= rdm.length){
+                    pickInArray--;
                 }
 
-                System.out.println("PICK IN ARRAY"+pickInArray);
-                //fill array with indexed shuffle contain index in dictionary now
-                System.out.println("Character matching the random index in b: "+ UnicodeCharsList.charAt(Math.abs(b[pickInArray])));
+                if (strArray.length > 10 && numberToShuffleInOccurrentArray <= 66 && numberToShuffleInOccurrentArray > 20) {
+                    pickInArray = pickInArray + (strArray.length - 10);
+                }
+
                 rdm[i] = UnicodeCharsList.charAt(Math.abs(b[pickInArray]));
-                System.out.println("TEST" + new String(rdm));
             }
         }
 

@@ -7,9 +7,8 @@ public class TimeComplexityCheck {
     public TimeComplexityCheck() throws NoSuchAlgorithmException, NoSuchProviderException {
         double now = System.currentTimeMillis();
         CryptoSafeRandom CSR = new CryptoSafeRandom();
-        System.out.println(CSR.CryptoSafeRandom(10));
-        //avec tous les println 98 mili
-        System.out.println("Temps pris par la classe testée : " + (System.currentTimeMillis() - now) + "milisecondes");
+        String rdm = CSR.CryptoSafeRandom(1);
+        System.out.println("Temps pris par la classe testée : " + (System.currentTimeMillis() - now) + "milisecondes, " + "Return de la classe testée : " + rdm);
     }
 
 
